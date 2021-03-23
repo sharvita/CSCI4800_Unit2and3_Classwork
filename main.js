@@ -1,20 +1,22 @@
+"use strict";
+
 const express = require("express"),
-app = express(),
-homeController = require("./controllers/homeController"),
-errorController = require("./controllers/errorController"),
-subscribersController = require("./controllers/subscribersController"),
-layouts = require("express-ejs-layouts"), mongoose = require("mongoose");
+  app = express(),
+  homeController = require("./controllers/homeController"),
+  errorController = require("./controllers/errorController"),
+  subscribersController = require("./controllers/subscribersController.js"),
+  methodOverride = require("method-override"),
+  layouts = require("express-ejs-layouts");
 
-mongoose.connect("mongodb://localhost:27017/confetti_cuisine",
-    { useNewUrlParser: true });
-
-app.set("port", process.env.PORT || 3000);
+const mongoose = require("mongoose");
+mongoose.connect(
+  "mongodb://localhost:27017/confetti_cuisine",
+  { useNewUrlParser: true }
+);
+mongoose.set("useCreateIndex", true);
 app.set("view engine", "ejs");
-app.use(layouts);
+app.set("port", process.env.PORT || 3000);
 
-app.get("/", homeController.showIndex);
-
-app.use(express.static("public"))
 app.use(
     express.urlencoded({
         extended: false
@@ -22,13 +24,19 @@ app.use(
 );
 
 app.use(express.json());
+app.use(layouts);
+app.use(express.static("public"));
+
+app.use(methodOverride("_method", {methods: ["POST","GET"]}));
+
+app.get("/", (req, res) => {
+    res.render("index");
+});
 
 app.get("/courses", homeController.showCourses);
 app.get("/subscribers", subscribersController.getAllSubscribers);
 app.get("/contact", subscribersController.getSubscriptionPage);
 app.post("/subscribe", subscribersController.saveSubscriber);
-// app.get("/contact", homeController.showSignUp);
-// app.post("/contact", homeController.postedSignUpForm);
 
 app.use(errorController.pageNotFoundError);
 app.use(errorController.internalServerError);
