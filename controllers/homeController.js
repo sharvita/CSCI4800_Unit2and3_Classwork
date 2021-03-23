@@ -1,3 +1,5 @@
+"use strict";
+
 var courses = [
     {
       title: "Chocolate Cake",
@@ -13,18 +15,10 @@ var courses = [
     }
   ];
 
-exports.showCourses = (req, res) => {
-    res.render("courses", {offeredCourses: courses});
-};
+  "use strict";
 
-exports.showSignUp = (req, res) => {
-    res.render("contact");
-};
-
-exports.postedSignUpForm = (req, res) => {
-    res.render("thanks");
-};
-
-exports.showIndex = (req, res) => {
-    res.render("index");
-};
+  module.exports = {
+    index: (req, res) => {
+      res.render("index");
+    }
+  };

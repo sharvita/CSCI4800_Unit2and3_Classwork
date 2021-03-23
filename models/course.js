@@ -1,6 +1,9 @@
+"use strict";
+
 const mongoose = require("mongoose"),
-{ Schema } = require("mongoose"),
-courseSchema = new Schema(
+  { Schema } = require("mongoose");
+
+var courseSchema = new Schema(
   {
     title: {
       type: String,

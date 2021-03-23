@@ -2,7 +2,7 @@
 
 body {
   margin: 0;
-  padding-top: 150px;
+  padding-top: 130px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #625a56;
 }
@@ -25,21 +25,16 @@ body {
 }
 
 img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
+  width: 100%;
 }
 
 a {
   color: #333;
   text-decoration: none;
-  text-align: center;
 }
 
 #nav a {
   text-decoration: none;
-  text-align: center;
 }
 
 .nav-align {
@@ -49,7 +44,6 @@ a {
 
 .container {
   padding: 0% 10%;
-  text-align: center;
 }
 
 .button {
@@ -59,6 +53,7 @@ a {
   cursor: pointer;
   display: inline-block;
   color: #fff;
+  margin-bottom: 2px;
 }
 
 .button:hover {
@@ -91,3 +86,17 @@ a {
   display: block;
   margin: 5px;
 }
+
+.data-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.data-form label {
+  margin: 5px 0 0 0;
+}
+
+.hidden-text {
+  -webkit-text-security: disc;
+}
+
