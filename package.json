@@ -1,13 +1,12 @@
 {
   "name": "confetti_cuisine",
   "version": "1.0.0",
-  "description": "",
+  "description": "A site for booking classes for cooking",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon main.js"
+    "start": "nodemon main"
   },
-  "author": "",
+  "author": "GomaS",
   "license": "ISC",
   "dependencies": {
     "connect-flash": "^0.1.1",
